@@ -68,8 +68,8 @@ public class Login extends CommonMethods {
             }
             Thread.sleep(1000);
             driver.findElement(By.className("submit-btn")).click();//点击登录
-            Thread.sleep(3000);
         }
+        Thread.sleep(3000);
     }
 
     //传用户名登录
