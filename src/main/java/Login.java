@@ -32,7 +32,7 @@ public class Login extends CommonMethods {
     }
 
     //登录
-    public static void login(String username, String password) throws InterruptedException {
+    public static WebDriver login(String username, String password) throws InterruptedException {
         String loginUrl = "statics/contentRiskControl/index.html#/work";
 
         driver.get(domain + loginUrl);
@@ -51,7 +51,6 @@ public class Login extends CommonMethods {
                 action.moveToElement(moveButton).clickAndHold(moveButton);
                 action.dragAndDropBy(moveButton, 305, 0).perform();
                 action.release();
-
                 Thread.sleep(2000);
             } else {
                 //验证码，修改前端js为默认验证码
@@ -69,14 +68,16 @@ public class Login extends CommonMethods {
             Thread.sleep(1000);
             driver.findElement(By.className("submit-btn")).click();//点击登录
         }
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        return driver;
     }
 
     //传用户名登录
-    public static void login() throws InterruptedException {
+    public static WebDriver login() throws InterruptedException {
         String username = "testwf1";
         String password = "test1234.";
-        login(username, password);
+        driver=login(username, password);
+        return driver;
     }
 
 }
