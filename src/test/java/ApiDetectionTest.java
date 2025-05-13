@@ -12,7 +12,7 @@ import java.util.*;
  * @author wufeng
  * @date 2025/5/6 14:15
  */
-public class ApiTest {
+public class ApiDetectionTest {
 
     private static String baseUrl="http://monitor.pdmiryun.com";
 
