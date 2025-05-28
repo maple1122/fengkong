@@ -8,7 +8,9 @@ public class LoginTest {
 
     @Test
     public void loginTest() throws InterruptedException {
+
         Login.login();
 //        Login.login("zsyhwf1","test1234.");
+
     }
 }

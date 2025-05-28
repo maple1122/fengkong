@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,6 +70,10 @@ public class Login extends CommonMethods {
             driver.findElement(By.className("submit-btn")).click();//点击登录
         }
         Thread.sleep(2000);
+
+        WebElement userElement=driver.findElement(By.className("user-img"));
+        Assert.assertTrue(userElement.isDisplayed());
+
         return driver;
     }
 

@@ -172,5 +172,4 @@ public class HttpClient4Util {
         result = doPost(url, paramMap, headerMap);
         System.out.println("post result :" + result);
     }
-
 }

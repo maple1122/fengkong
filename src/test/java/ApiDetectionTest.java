@@ -66,6 +66,7 @@ public class ApiDetectionTest {
         paramMap.put("content",FileUtil.readFile(path));
         String s = HttpClient4Util.doPostJson(formatUrl, paramMap, headerMap);
         System.out.println("text:" + s);
+
     }
 
     //图片检测
