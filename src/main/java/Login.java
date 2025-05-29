@@ -71,9 +71,10 @@ public class Login extends CommonMethods {
         }
         Thread.sleep(2000);
 
-        WebElement userElement=driver.findElement(By.className("user-img"));
-        Assert.assertTrue(userElement.isDisplayed());
-
+        if (isJudgingElement(driver,By.className("user-img"))) {
+            WebElement userElement = driver.findElement(By.className("user-img"));
+            Assert.assertTrue(userElement.isDisplayed());
+        }else Assert.assertTrue(false);
         return driver;
     }
 

@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class OnlineDetection extends Login {
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.t-button.t-button--variant-base.t-button--theme-primary.CheckResultDialog_btn_LVZTA")).click();
         Thread.sleep(3000);
+        assertResult();//校验结果
     }
 
     //查图片
@@ -32,12 +34,13 @@ public class OnlineDetection extends Login {
         selectTab(2);
         driver.findElement(By.xpath("//div[@class='LinkAndUpload_wrap_ujoLH']/div/label[2]")).click();//点击图片链接
         Thread.sleep(200);
-        driver.findElement(By.xpath("//div[@class='list']/div/div[2]/div/div/div/input")).sendKeys("http://nisptools.nos.netease.com/yidun-tmp-04c56e5f50c847b347c0073495d95c9e.jpg");//录入图片链接
+        driver.findElement(By.xpath("//div[@class='list']/div/div[2]/div/div/div/input")).sendKeys("http://nisptools.nos.netease.com/yidun-tmp-92dde89601c6e71433e18c19cfb98adf.jpg");//录入图片链接
         Thread.sleep(200);
         driver.findElement(By.cssSelector("button.t-button.t-button--variant-base.t-button--theme-primary.BodyPanel_submit_btn_dmUIE")).click();//点击开始检测
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.t-button.t-button--variant-base.t-button--theme-primary.CheckResultDialog_btn_LVZTA")).click();
         Thread.sleep(3000);
+        assertResult();//校验结果
     }
 
     //查音频
@@ -53,6 +56,7 @@ public class OnlineDetection extends Login {
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.t-button.t-button--variant-base.t-button--theme-primary.CheckResultDialog_btn_LVZTA")).click();
         Thread.sleep(3000);
+        assertResult();//校验结果
     }
 
     //查视频
@@ -68,12 +72,12 @@ public class OnlineDetection extends Login {
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.t-button.t-button--variant-base.t-button--theme-primary.CheckResultDialog_btn_LVZTA")).click();
         Thread.sleep(3000);
+        assertResult();//校验结果
     }
 
     //批量检测
     public void checkBatch() throws InterruptedException {
         selectTab(5);
-
     }
 
     //tab切换
@@ -83,6 +87,19 @@ public class OnlineDetection extends Login {
             tabs.get(type).findElement(By.xpath("./div")).click();//点击tab
         }
         Thread.sleep(500);
+    }
+
+    //校验结果
+    private static void assertResult() throws InterruptedException {
+        boolean result = false;
+        for (int i = 0; i < 3; i++) {
+            if (isJudgingElement(driver, By.cssSelector("button.t-button.t-button--variant-base.t-button--theme-primary.TopSearch_export_btn_zWkji"))) {
+                result = true;
+                break;
+            }
+            Thread.sleep(1000);
+        }
+        Assert.assertTrue(result);
     }
 
     //初始化

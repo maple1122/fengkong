@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -39,7 +40,8 @@ public class ContentSource extends Login {
                 Thread.sleep(200);
                 if (seted) break;
             }
-            if (!seted) System.out.println("~~~~~~~~~~ theme()修改策略配置，执行成功 ~~~~~~~~~~");
+            if (seted) System.out.println("~~~~~~~~~~ theme()修改策略配置，执行成功 ~~~~~~~~~~");
+            Assert.assertTrue(seted);
         } else System.out.println("没有测试数据");
         Thread.sleep(3000);
     }
